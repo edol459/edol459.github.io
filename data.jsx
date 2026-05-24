@@ -9,16 +9,14 @@ const TREE = [
 
 Computer Science graduate. Data Science. Basketball analytics.
 
-**What I'm chasing:** a role as an NBA / WNBA analyst — or any data-heavy job where I get to build, model, and ship.
+**Featured Projects:**
+- **ydkball** : a basketball platform: a social layer for rating and reviewing pro games, plus an analytics hub. Also on the App Store as **ydkball.app**.
+- **theoutlier.net** : a site that finds and ranks outlier stats in NBA games.
+- **academic** : academic writing and video for my senior capstone project. See the \`academic/\` folder.
 
-**What I make:**
-- **theoutlier.net** — a site that surfaces the statistically weird moments in NBA games. The numbers that don't fit.
-- **ydkball** — a basketball platform: a social layer for rating and reviewing pro games, plus a four-tool stats hub. Also on the App Store as **ydkball.app**.
-- Academic writing and video — see the \`academic/\` folder.
+**Stack:** Python heavy, SQL, JavaScript/TypeScript, React, Swift.
 
-**Stack:** Python (pandas, numpy, scikit-learn), SQL, JavaScript/TypeScript, React, Swift. Whatever the data needs.
-
-Click any folder. Every file leads somewhere real.`,
+  **Contact:** edolder@purdue.edu `
   },
   {
     id: "resume",
@@ -39,10 +37,10 @@ Click any folder. Every file leads somewhere real.`,
         type: "site",
         href: "https://theoutlier.net",
         tagline: "NBA games, by the numbers that don't fit.",
-        description: `An analytics site that surfaces the statistical outliers in every NBA game — the lines that broke a player's career average, the runs that defied the model, the box-score corners nobody else is looking at.
-
-Built for fans who want the "why is this weird" alongside the box score.`,
-        stack: ["Python", "Postgres", "Next.js", "D3"],
+        description: `An analytics site that surfaces the statistical outliers in every NBA game. 
+        
+        Live data feeds, automated outlier computation and  data visualization when games finish.`,
+        stack: ["Python", "Pandas", "Postgres", "Next.js", "D3"],
       },
       {
         id: "ydkball",
@@ -54,7 +52,7 @@ Built for fans who want the "why is this weird" alongside the box score.`,
             name: "ydkball.net",
             type: "site",
             href: "https://ydkball.net",
-            tagline: "The home base — social + stats for NBA & WNBA.",
+            tagline: "social platform + stats for NBA & WNBA.",
             description: `The main web hub. From here you can browse game reviews from the community or dive into the four-tool stats hub.
 
 Below this folder, each surface is broken out as its own item so you can see them individually.`,
@@ -62,62 +60,51 @@ Below this folder, each surface is broken out as its own item so you can see the
           },
           {
             id: "ydk-app",
-            name: "ydkball.app",
+            name: "ydkball iOS",
             type: "app",
-            href: "https://apps.apple.com/us/app/ydkball/",
-            tagline: "iOS app — the platform in your pocket.",
+            href: "https://apps.apple.com/us/app/ydkball/id6766407610",
+            tagline: "iOS app",
             description: `Native iOS build of the ydkball platform. Rate games, write reviews, follow other fans, and dig into stats — all from your phone.
 
 Available on the App Store.`,
             stack: ["Swift", "SwiftUI"],
           },
           {
-            id: "ydk-reviews",
-            name: "reviews",
-            type: "folder-feature",
-            href: "https://ydkball.net",
-            tagline: "Letterboxd, but for NBA and WNBA games.",
-            description: `The social half of ydkball. Users rate each NBA and WNBA game on a 0–10 scale, write a short review, and follow other fans whose taste they trust.
-
-A game ages — a 50-point night looks different a year later. Reviews capture how it felt to watch live.`,
-            stack: ["React", "Postgres"],
-          },
-          {
             id: "ydk-stats",
-            name: "stats-dash",
+            name: "analytics tools",
             type: "folder",
             children: [
               {
                 id: "ydk-statsheets",
-                name: "stat-sheets.app",
+                name: "interactive player database",
                 type: "tool",
-                href: "https://ydkball.net",
-                tagline: "Per Game · Totals · Advanced · Tracking. Sort, filter, dig.",
-                description: `Full player stat sheets across every category — Per Game, Totals, Advanced, Tracking. Sort by anything, filter by anything, and surface the line you're chasing.`,
+                href: "https://ydkball.net/leaderboard",
+                tagline: "Every stat, for every player, sortable and filterable.",
+                description: `Full player stat sheets across every category — Per Game, Totals, Advanced, Tracking.`,
               },
               {
                 id: "ydk-wowy",
-                name: "wowy.app",
+                name: "WoWY",
                 type: "tool",
-                href: "https://ydkball.net",
+                href: "https://ydkball.net/wowy",
                 tagline: "With-or-without-you on/off splits.",
-                description: `See how a team performs with any player on the floor vs. on the bench. Drop a name, get the deltas across offensive rating, defensive rating, pace, and the rest.`,
+                description: `See how a team performs with any player on the floor vs. on the bench. Select 1-5 players, get the offensive, defensive, and net rating on/off deltas.`,
               },
               {
                 id: "ydk-compare",
-                name: "compare.app",
+                name: "compare",
                 type: "tool",
-                href: "https://ydkball.net",
+                href: "https://ydkball.net/compare",
                 tagline: "Side-by-side player comparison.",
-                description: `Stack any two seasons across every stat that matters. Career-best vs. career-best, rookie-year vs. rookie-year, today vs. last week — same view, every time.`,
+                description: `Stack any two seasons across every stat that matters. Career-best shooting stats vs. career-best shooting stats, rookie-year defensive stats vs. rookie-year defensive stats, or any two seasons you want to compare.`,
               },
               {
                 id: "ydk-builder",
-                name: "builder.app",
+                name: "player archetype builder",
                 type: "tool",
-                href: "https://ydkball.net",
-                tagline: "Build a custom player composite. (Beta)",
-                description: `Pick any stats. Weight them by impact. Rank the league.
+                href: "https://ydkball.net/builder",
+                tagline: "Build a custom player composite.",
+                description: `Select any combination of stats, find the players that are in the highest average percentile in them all.
 
 You're defining the metric — "two-way guard", "rim protector", "high-usage scorer" — and the tool surfaces who fits.`,
               },
@@ -138,7 +125,7 @@ You're defining the metric — "two-way guard", "rim protector", "high-usage sco
         type: "video",
         href: "https://youtu.be/nSGjruA_SYA",
         embed: "https://www.youtube.com/embed/nSGjruA_SYA",
-        tagline: "Senior capstone — ML model that recognizes emotion from images.",
+        tagline: "Senior capstone project — ML model that recognizes emotion from images.",
         description: `Video walkthrough of my senior capstone: a machine learning model that classifies emotion from facial images. Includes the problem framing, dataset, model architecture, training process, and results.`,
       },
       {
