@@ -82,23 +82,33 @@ function MarkdownView({ text }) {
 }
 
 // ---------- preview body ----------
-function PreviewBody({ node }) {
+function PreviewBody({ node, onSelect, onToggleExpand }) {
   if (node.type === "markdown") return <MarkdownView text={node.content} />;
   if (node.type === "text") return <pre className="plain">{node.content}</pre>;
 
   if (node.type === "folder" || node.type === "folder-feature") {
     const kids = node.children || [];
+    const handleClick = (child) => {
+      const isFolder = child.type === "folder" || child.type === "folder-feature";
+      if (isFolder && onToggleExpand) onToggleExpand(child.id);
+      if (onSelect) onSelect(child.id);
+    };
     return (
       <React.Fragment>
         {node.description && <p className="desc">{node.description}</p>}
         <div className="folder-grid">
           {kids.length === 0 && <p className="muted">Empty folder.</p>}
           {kids.map(c => (
-            <div className="grid-item" key={c.id}>
+            <button
+              type="button"
+              className="grid-item"
+              key={c.id}
+              onClick={() => handleClick(c)}
+            >
               <div className="grid-icon">{iconFor(c, 40)}</div>
               <div className="grid-name">{c.name}</div>
               {c.tagline && <div className="grid-sub">{c.tagline}</div>}
-            </div>
+            </button>
           ))}
         </div>
       </React.Fragment>
@@ -265,7 +275,7 @@ function TopHeader() {
 // ---------- main app ----------
 function App() {
   const [tweaks, setTweaks] = useTweaks(TWEAK_DEFAULTS);
-  const [expanded, setExpanded] = useState(new Set(["basketball", "ydkball"]));
+  const [expanded, setExpanded] = useState(new Set(["analytics-tools", "basketball-platforms"]));
   const [selectedId, setSelectedId] = useState("readme");
   const [query, setQuery] = useState("");
 
@@ -395,7 +405,7 @@ function App() {
                   </div>
                 </div>
                 <div className="preview-body">
-                  <PreviewBody node={selected} />
+                  <PreviewBody node={selected} onSelect={setSelectedId} onToggleExpand={(id) => setExpanded(prev => new Set(prev).add(id))} />
                 </div>
               </React.Fragment>
             ) : <p className="muted" style={{padding:24}}>Nothing selected.</p>}

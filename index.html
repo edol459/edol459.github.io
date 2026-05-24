@@ -293,11 +293,21 @@
     text-align: center;
     background: var(--paper);
     transition: all 140ms ease;
+    cursor: pointer;
+    font-family: inherit;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .grid-item:hover {
     border-color: var(--accent);
     transform: translateY(-1px);
     box-shadow: 0 6px 20px -10px var(--accent-soft);
+  }
+  .grid-item:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
   .grid-icon { margin-bottom: 10px; display: flex; justify-content: center; }
   .grid-name {
