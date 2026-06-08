@@ -10,7 +10,7 @@ const TREE = [
 Computer Science graduate. Data Science. Basketball analytics.
 
 **What you'll find here:**
-- \`analytics-tools/\` — four interactive tools I built to answer real basketball questions (player composites, on/off splits, comparisons, full statistical sheets)
+- \`analytics-tools/\` — interactive basketball analytics tools, college and pro
 - \`basketball-platforms/\` — the live websites and iOS app that host my basketball work
 - \`academic/\` — senior capstone: an ML model that recognizes emotion from images
 
@@ -30,7 +30,7 @@ Computer Science graduate. Data Science. Basketball analytics.
     id: "analytics-tools",
     name: "analytics-tools",
     type: "folder",
-    description: "Four interactive analytics tools, each answering a different basketball question. All live on ydkball.net.",
+    description: "interactive basketball analytics tools, college and pro",
     children: [
       {
         id: "cbb-lineups",
