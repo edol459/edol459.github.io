@@ -37,7 +37,7 @@ Computer Science graduate. Data Science. Basketball analytics.
         name: "cbb lineup tool",
         type: "tool",
         href: "https://cbblineups.up.railway.app/",
-        tagline: "For college basketball staff to optimize their 5-man lineups",
+        tagline: "For college basketball staff to optimize their 5-man lineups.",
         description: `Compare your own 5-man lineups to benchmarks- avg D1 lineup, avg NCAA lineup, opponent starting 5, etc.`,
         stack: ["Python, JavaScript, Pandas"],
       },
