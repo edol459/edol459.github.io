@@ -194,6 +194,52 @@ function PreviewBody({ node, onSelect, onToggleExpand }) {
     );
   }
 
+  if (node.type === "design") {
+    const source = node.source || (
+      node.href && node.href.includes("figma.com") ? "figma"
+      : node.href && node.href.endsWith(".html") ? "html"
+      : node.href && node.href.includes("claude") ? "claude"
+      : "image"
+    );
+    const label = source === "figma" ? "Figma" : source === "claude" ? "Claude page" : source === "html" ? "full page" : "design";
+    const figmaEmbed = source === "figma" && node.href
+      ? `https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(node.href)}`
+      : null;
+    // Figma + self-hosted HTML embed live; Claude/image sources use a thumbnail + open-live to avoid cross-site frame blocking.
+    const liveEmbed = figmaEmbed || (source === "html" ? node.href : null);
+    return (
+      <div className="doc-preview">
+        {node.description && <p className="desc" style={{ marginTop: 0 }}>{node.description}</p>}
+        {node.stack && (
+          <div className="stack">
+            {node.stack.map(s => <span className="chip" key={s}>{s}</span>)}
+          </div>
+        )}
+        {liveEmbed ? (
+          <iframe src={liveEmbed} title={node.name} className={"doc-frame" + (source === "html" ? " design-live" : "")} allowFullScreen />
+        ) : node.thumb ? (
+          <a className="design-thumb" href={node.href} target="_blank" rel="noopener">
+            <img src={node.thumb} alt={`${node.name} preview`} />
+            <span className="design-thumb-badge">open live <ArrowOut size={11} /></span>
+          </a>
+        ) : (
+          <div className="placeholder">
+            <div className="placeholder-stripes" />
+            <div className="placeholder-label">{label.toLowerCase()} · add a share link, or a thumb in /assets/design</div>
+          </div>
+        )}
+        <div className="actions">
+          {node.href && (
+            <a className="btn primary" href={node.href} target="_blank" rel="noopener">
+              Open in {label} <ArrowOut size={11} />
+            </a>
+          )}
+          {node.href && <button className="btn ghost" onClick={() => navigator.clipboard?.writeText(node.href)}>Copy link</button>}
+        </div>
+      </div>
+    );
+  }
+
   return <p className="muted">No preview.</p>;
 }
 
@@ -228,7 +274,7 @@ function TreeRow({ node, depth = 0, expanded, onToggle, onSelect, selected, quer
         </span>
         <span className="icon">{iconFor(node, 16)}</span>
         <span className="name">{node.name}</span>
-        {(node.type === "site" || node.type === "app" || node.type === "tool") &&
+        {(node.type === "site" || node.type === "app" || node.type === "tool" || node.type === "design") &&
           <span className="ext-link"><ArrowOut /></span>}
       </div>
       {isFolder && (isOpen || !!query) && visibleChildren.map(child => (
@@ -338,7 +384,7 @@ function App() {
           if (p && p.length > 1) setSelectedId(p[p.length - 2].id);
         }
       }
-      if (e.key === "Enter" && selected && selected.href && (selected.type === "site" || selected.type === "app" || selected.type === "tool")) {
+      if (e.key === "Enter" && selected && selected.href && (selected.type === "site" || selected.type === "app" || selected.type === "tool" || selected.type === "design")) {
         window.open(selected.href, "_blank");
       }
     };

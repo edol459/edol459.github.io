@@ -663,6 +663,8 @@
     background: var(--paper);
     margin-bottom: 16px;
   }
+  /* Design canvases are wide + tall — give them more room and let the iframe scroll internally */
+  .doc-preview .doc-frame.design-live { height: 660px; }
   .placeholder {
     height: 240px;
     border: 1px dashed var(--ink-4);
@@ -709,6 +711,37 @@
     border: 0;
     border-radius: 6px;
   }
+
+  /* design thumbnail (Claude pages / image exports that can't be iframed) */
+  .design-thumb {
+    display: block;
+    position: relative;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: var(--bg-2);
+    transition: border-color 120ms ease;
+  }
+  .design-thumb:hover { border-color: var(--accent); }
+  .design-thumb img { display: block; width: 100%; height: auto; }
+  .design-thumb-badge {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.72);
+    color: #fff;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    opacity: 0;
+    transition: opacity 120ms ease;
+  }
+  .design-thumb:hover .design-thumb-badge { opacity: 1; }
 
   /* footnote */
   .footnote {
