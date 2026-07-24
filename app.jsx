@@ -293,7 +293,7 @@ function TopHeader() {
       <div className="masthead-inner">
         <div className="name-block">
           <h1>Ethan Dolder</h1>
-          <p className="sub">Computer Science Graduate · Data Science · Basketball Analytics</p>
+          <p className="sub">Product Designer & Full-Stack Developer · Data-Driven Sports Products</p>
         </div>
         <nav className="contact">
           <a href="mailto:edolder@purdue.edu" className="c-link">
@@ -308,9 +308,9 @@ function TopHeader() {
             <span className="c-label">github</span>
             <span className="c-value">@edol459</span>
           </a>
-          <a href="https://x.com/bigpacersguy" target="_blank" rel="noopener" className="c-link">
+          <a href="https://x.com/hali_muse" target="_blank" rel="noopener" className="c-link">
             <span className="c-label">x / twitter</span>
-            <span className="c-value">@bigpacersguy</span>
+            <span className="c-value">@hali_muse</span>
           </a>
         </nav>
       </div>
@@ -321,7 +321,7 @@ function TopHeader() {
 // ---------- main app ----------
 function App() {
   const [tweaks, setTweaks] = useTweaks(TWEAK_DEFAULTS);
-  const [expanded, setExpanded] = useState(new Set(["analytics-tools", "basketball-platforms"]));
+  const [expanded, setExpanded] = useState(new Set(["design", "basketball-platforms"]));
   const [selectedId, setSelectedId] = useState("readme");
   const [query, setQuery] = useState("");
 

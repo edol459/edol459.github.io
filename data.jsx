@@ -7,12 +7,12 @@ const TREE = [
     type: "markdown",
     content: `# Hi, I'm Ethan Dolder.
 
-Computer Science graduate. Data Science. Basketball analytics.
+Product designer and full-stack developer. I design and ship data-driven sports products across web, iOS, and backend.
 
 **What you'll find here:**
-- \`analytics-tools/\` — interactive basketball analytics tools, college and pro
+- \`design/\` — high-fidelity interactive prototypes and design docs for my products
 - \`basketball-platforms/\` — the live websites and iOS app that host my basketball work
-- \`design/\` — design docs & prototypes: Figma files and interactive Claude pages
+- \`analytics-tools/\` — interactive basketball analytics tools, college and pro
 - \`academic/\` — senior capstone: an ML model that recognizes emotion from images
 
 **Stack:** Python heavy (pandas, numpy, scikit-learn), SQL, JavaScript/TypeScript, React, Swift.
@@ -25,7 +25,82 @@ Computer Science graduate. Data Science. Basketball analytics.
     type: "pdf",
     href: "assets/resume.pdf",
     download: "EthanDolder-Resume.pdf",
-    tagline: "One-pager. CS grad, data + basketball analytics.",
+    tagline: "One-pager. Product design + full-stack, data-driven sports products.",
+  },
+  {
+    id: "design",
+    name: "design",
+    type: "folder",
+    description: "Design docs & prototypes — Figma files, interactive Claude pages, and static mockups.",
+    children: [
+      // To add a Figma file later: { id, name, type: "design", source: "figma",
+      //   href: "<public Figma share link>", tagline, description, stack: ["Figma"] }
+      {
+        id: "ydk-player-profile",
+        name: "player profile — iOS + web",
+        type: "design",
+        source: "html",
+        // Whole Claude design bundle unzipped into this folder; the canvas file boots itself from ./support.js.
+        href: "assets/design/player-profile/Player%20Profile.dc.html",
+        tagline: "Design doc for ydkball's player page — native iOS and web, side by side.",
+        description: `An interactive design doc for the ydkball player-profile screen, built as a Claude design page. Shows the native SwiftUI iOS layout and the responsive web layout as live artboards — season averages, community rating, rating trend, and reviews. This mockup became the real PlayerProfileView in the iOS app.`,
+        stack: ["Claude", "SwiftUI", "React", "Design doc"],
+      },
+      {
+        id: "ydk-profile-diary",
+        name: "user profile & diary — iOS",
+        type: "design",
+        source: "claude",
+        href: "https://claude.ai/code/artifact/1fe97f66-5a7e-47c3-a55c-f48cbbf69d9a",
+        thumb: "assets/design/userprofiledesign.png",
+        tagline: "Letterboxd-style user profile and game diary for the ydkball iOS app.",
+        description: `Design for the ydkball member experience: a user profile — watched count, reviews, average rating, favorite players, and a featured ranked list — plus a full "Diary" game log with by-the-numbers stats, filtering, and sort. A Letterboxd-for-basketball take on tracking every game you've watched and rated.
+
+Opens live as an interactive Claude page.`,
+        stack: ["Claude", "iOS", "Design"],
+      },
+    ],
+  },
+  {
+    id: "basketball-platforms",
+    name: "basketball-platforms",
+    type: "folder",
+    description: "The live products that host my basketball work — full-stack websites, an iOS app, and an automated analytics site.",
+    children: [
+      {
+        id: "ydk-site",
+        name: "ydkball.net",
+        type: "site",
+        href: "https://ydkball.net",
+        tagline: "Social platform + analytics hub for NBA & WNBA.",
+        description: `The main web hub. Houses the four analytics tools above plus a community layer where users rate and review NBA / WNBA games — think Letterboxd for pro basketball.
+
+I built the full stack: data pipeline, backend, frontend, auth, and the analytics surfaces.`,
+        stack: ["React", "Node", "Postgres", "Python ETL"],
+      },
+      {
+        id: "ydk-app",
+        name: "ydkball iOS",
+        type: "app",
+        href: "https://apps.apple.com/us/app/ydkball/id6766407610",
+        tagline: "Native iOS build of the ydkball platform.",
+        description: `Rate games, write reviews, follow other fans, and dig into stats — all from your phone. Native SwiftUI build, talks to the same backend as the web platform.
+
+Available on the App Store.`,
+        stack: ["Swift", "SwiftUI"],
+      },
+      {
+        id: "outlier",
+        name: "theoutlier.net",
+        type: "site",
+        href: "https://theoutlier.net",
+        tagline: "NBA games, by the numbers that don't fit.",
+        description: `An analytics site that surfaces the statistical outliers in every NBA game.
+
+Live data feeds, automated outlier computation, and data visualization triggered when games finish — so the next-morning takes have actual evidence behind them.`,
+        stack: ["Python", "Pandas", "Postgres", "Next.js", "D3"],
+      },
+    ],
   },
   {
     id: "analytics-tools",
@@ -93,81 +168,6 @@ You're defining the metric — "two-way guard", "rim protector", "high-usage sco
 
 Live at ydkball.net/builder.`,
         stack: ["React", "Postgres", "Python (percentile pipeline)"],
-      },
-    ],
-  },
-  {
-    id: "basketball-platforms",
-    name: "basketball-platforms",
-    type: "folder",
-    description: "The live products that host my basketball work — full-stack websites, an iOS app, and an automated analytics site.",
-    children: [
-      {
-        id: "ydk-site",
-        name: "ydkball.net",
-        type: "site",
-        href: "https://ydkball.net",
-        tagline: "Social platform + analytics hub for NBA & WNBA.",
-        description: `The main web hub. Houses the four analytics tools above plus a community layer where users rate and review NBA / WNBA games — think Letterboxd for pro basketball.
-
-I built the full stack: data pipeline, backend, frontend, auth, and the analytics surfaces.`,
-        stack: ["React", "Node", "Postgres", "Python ETL"],
-      },
-      {
-        id: "ydk-app",
-        name: "ydkball iOS",
-        type: "app",
-        href: "https://apps.apple.com/us/app/ydkball/id6766407610",
-        tagline: "Native iOS build of the ydkball platform.",
-        description: `Rate games, write reviews, follow other fans, and dig into stats — all from your phone. Native SwiftUI build, talks to the same backend as the web platform.
-
-Available on the App Store.`,
-        stack: ["Swift", "SwiftUI"],
-      },
-      {
-        id: "outlier",
-        name: "theoutlier.net",
-        type: "site",
-        href: "https://theoutlier.net",
-        tagline: "NBA games, by the numbers that don't fit.",
-        description: `An analytics site that surfaces the statistical outliers in every NBA game.
-
-Live data feeds, automated outlier computation, and data visualization triggered when games finish — so the next-morning takes have actual evidence behind them.`,
-        stack: ["Python", "Pandas", "Postgres", "Next.js", "D3"],
-      },
-    ],
-  },
-  {
-    id: "design",
-    name: "design",
-    type: "folder",
-    description: "Design docs & prototypes — Figma files, interactive Claude pages, and static mockups.",
-    children: [
-      // To add a Figma file later: { id, name, type: "design", source: "figma",
-      //   href: "<public Figma share link>", tagline, description, stack: ["Figma"] }
-      {
-        id: "ydk-player-profile",
-        name: "player profile — iOS + web",
-        type: "design",
-        source: "html",
-        // Whole Claude design bundle unzipped into this folder; the canvas file boots itself from ./support.js.
-        href: "assets/design/player-profile/Player%20Profile.dc.html",
-        tagline: "Design doc for ydkball's player page — native iOS and web, side by side.",
-        description: `An interactive design doc for the ydkball player-profile screen, built as a Claude design page. Shows the native SwiftUI iOS layout and the responsive web layout as live artboards — season averages, community rating, rating trend, and reviews. This mockup became the real PlayerProfileView in the iOS app.`,
-        stack: ["Claude", "SwiftUI", "React", "Design doc"],
-      },
-      {
-        id: "ydk-profile-diary",
-        name: "user profile & diary — iOS",
-        type: "design",
-        source: "claude",
-        href: "https://claude.ai/code/artifact/1fe97f66-5a7e-47c3-a55c-f48cbbf69d9a",
-        thumb: "assets/design/userprofiledesign.png",
-        tagline: "Letterboxd-style user profile and game diary for the ydkball iOS app.",
-        description: `Design for the ydkball member experience: a user profile — watched count, reviews, average rating, favorite players, and a featured ranked list — plus a full "Diary" game log with by-the-numbers stats, filtering, and sort. A Letterboxd-for-basketball take on tracking every game you've watched and rated.
-
-Opens live as an interactive Claude page.`,
-        stack: ["Claude", "iOS", "Design"],
       },
     ],
   },
