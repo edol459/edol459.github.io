@@ -96,7 +96,10 @@
     font-size: 15px;
     color: var(--ink-2);
     max-width: 56ch;
+    text-wrap: balance;
   }
+  /* keep each half of the tagline intact — break only at the separator */
+  .name-block .sub .np { white-space: nowrap; }
   .contact {
     display: grid;
     grid-template-columns: 1fr 1fr;

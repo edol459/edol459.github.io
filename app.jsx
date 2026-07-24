@@ -293,7 +293,7 @@ function TopHeader() {
       <div className="masthead-inner">
         <div className="name-block">
           <h1>Ethan Dolder</h1>
-          <p className="sub">Product Designer & Full-Stack Developer · Data-Driven Sports Products</p>
+          <p className="sub"><span className="np">Product Designer & Full-Stack Developer ·</span> <span className="np">Data-Driven Sports Products</span></p>
         </div>
         <nav className="contact">
           <a href="mailto:edolder@purdue.edu" className="c-link">

@@ -15,7 +15,7 @@ Product designer and full-stack developer. I design and ship data-driven sports 
 - \`analytics-tools/\` — interactive basketball analytics tools, college and pro
 - \`academic/\` — senior capstone: an ML model that recognizes emotion from images
 
-**Stack:** Python heavy (pandas, numpy, scikit-learn), SQL, JavaScript/TypeScript, React, Swift.
+**Stack:** React, JavaScript/TypeScript, Swift/SwiftUI for product & UI; Python (pandas, numpy, scikit-learn) and SQL for the data behind them.
 
 **Contact:** edolder@purdue.edu`,
   },
