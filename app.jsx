@@ -308,9 +308,9 @@ function TopHeader() {
             <span className="c-label">github</span>
             <span className="c-value">@edol459</span>
           </a>
-          <a href="https://x.com/hali_muse" target="_blank" rel="noopener" className="c-link">
+          <a href="https://x.com/HaliMuse" target="_blank" rel="noopener" className="c-link">
             <span className="c-label">x / twitter</span>
-            <span className="c-value">@hali_muse</span>
+            <span className="c-value">@HaliMuse</span>
           </a>
         </nav>
       </div>
