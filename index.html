@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ethan Dolder — CS Grad, Basketball Analytics</title>
-<meta name="description" content="Computer Science graduate. Data Science. Basketball analytics. Builder of theoutlier.net and ydkball. Looking for analyst, data, and basketball ops roles." />
+<title>Ethan Dolder — Product Designer & Developer</title>
+<meta name="description" content="Product designer and full-stack developer building data-driven sports products across web, iOS, and backend." />
 <meta name="author" content="Ethan Dolder" />
 
 <!-- Open Graph (for LinkedIn / X / iMessage previews) -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Ethan Dolder — CS Grad, Basketball Analytics" />
-<meta property="og:description" content="Builder of theoutlier.net and ydkball. CS grad chasing a role in basketball analytics." />
+<meta property="og:title" content="Ethan Dolder — Product Designer & Developer" />
+<meta property="og:description" content="Product designer and full-stack developer building data-driven sports products across web, iOS, and backend." />
 <meta property="og:image" content="og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Ethan Dolder — Portfolio" />
-<meta name="twitter:description" content="Builder of theoutlier.net and ydkball. CS grad chasing a role in basketball analytics." />
+<meta name="twitter:title" content="Ethan Dolder — Product Designer & Developer" />
+<meta name="twitter:description" content="Product designer and full-stack developer building data-driven sports products across web, iOS, and backend." />
 
 <!-- Favicon: blue mac-style folder, inline SVG so no extra request -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 52'><path d='M4 8 Q4 4 8 4 L22 4 L26 8 L56 8 Q60 8 60 12 L60 18 L4 18 Z' fill='%231c7fc7'/><path d='M4 14 Q4 10 8 10 L56 10 Q60 10 60 14 L60 46 Q60 50 56 50 L8 50 Q4 50 4 46 Z' fill='%234ab8f0'/></svg>" />
@@ -96,7 +96,10 @@
     font-size: 15px;
     color: var(--ink-2);
     max-width: 56ch;
+    text-wrap: balance;
   }
+  /* keep each half of the tagline intact — break only at the separator */
+  .name-block .sub .np { white-space: nowrap; }
   .contact {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -663,6 +666,8 @@
     background: var(--paper);
     margin-bottom: 16px;
   }
+  /* Design canvases are wide + tall — give them more room and let the iframe scroll internally */
+  .doc-preview .doc-frame.design-live { height: 660px; }
   .placeholder {
     height: 240px;
     border: 1px dashed var(--ink-4);
@@ -709,6 +714,37 @@
     border: 0;
     border-radius: 6px;
   }
+
+  /* design thumbnail (Claude pages / image exports that can't be iframed) */
+  .design-thumb {
+    display: block;
+    position: relative;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: var(--bg-2);
+    transition: border-color 120ms ease;
+  }
+  .design-thumb:hover { border-color: var(--accent); }
+  .design-thumb img { display: block; width: 100%; height: auto; }
+  .design-thumb-badge {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.72);
+    color: #fff;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    opacity: 0;
+    transition: opacity 120ms ease;
+  }
+  .design-thumb:hover .design-thumb-badge { opacity: 1; }
 
   /* footnote */
   .footnote {

@@ -103,6 +103,16 @@ const FeatureIcon = ({ size = 20 }) => (
   </svg>
 );
 
+// Design file — artboard with nodes, no fake brand marks
+const DesignIcon = ({ size = 18 }) => (
+  <FileBase size={size} tint="#a855c7">
+    <rect x="10" y="18" width="7" height="7" rx="1" fill="none" stroke="#a855c7" strokeWidth="1.5" />
+    <rect x="20" y="26" width="7" height="7" rx="1" fill="#a855c7" opacity="0.55" />
+    <line x1="13.5" y1="25" x2="13.5" y2="29.5" stroke="#a855c7" strokeWidth="1.3" />
+    <line x1="13.5" y1="29.5" x2="20" y2="29.5" stroke="#a855c7" strokeWidth="1.3" />
+  </FileBase>
+);
+
 const ChevronRight = ({ size = 10, open = false }) => (
   <svg width={size} height={size} viewBox="0 0 10 10" style={{
     flexShrink: 0,
@@ -135,6 +145,7 @@ function iconFor(node, size = 18) {
     case "pdf": return <PdfIcon size={size} />;
     case "doc": return <DocIcon size={size} />;
     case "video": return <VideoIcon size={size} />;
+    case "design": return <DesignIcon size={size} />;
     case "site": return <SiteIcon size={size + 2} />;
     case "app": return <AppIcon size={size + 2} />;
     case "tool": return <ToolIcon size={size + 2} />;
@@ -144,6 +155,6 @@ function iconFor(node, size = 18) {
 
 Object.assign(window, {
   Folder, FileBase, MarkdownIcon, TextIcon, PdfIcon, DocIcon, VideoIcon,
-  SiteIcon, AppIcon, ToolIcon, FeatureIcon, ChevronRight, ArrowOut, Search,
+  DesignIcon, SiteIcon, AppIcon, ToolIcon, FeatureIcon, ChevronRight, ArrowOut, Search,
   iconFor,
 });

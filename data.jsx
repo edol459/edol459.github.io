@@ -7,14 +7,15 @@ const TREE = [
     type: "markdown",
     content: `# Hi, I'm Ethan Dolder.
 
-Computer Science graduate. Data Science. Basketball analytics.
+Product designer and full-stack developer. I design and ship data-driven sports products across web, iOS, and backend.
 
 **What you'll find here:**
-- \`analytics-tools/\` — four interactive tools I built to answer real basketball questions (player composites, on/off splits, comparisons, full statistical sheets)
+- \`design/\` — high-fidelity interactive prototypes and design docs for my products
 - \`basketball-platforms/\` — the live websites and iOS app that host my basketball work
+- \`analytics-tools/\` — interactive basketball analytics tools, college and pro
 - \`academic/\` — senior capstone: an ML model that recognizes emotion from images
 
-**Stack:** Python heavy (pandas, numpy, scikit-learn), SQL, JavaScript/TypeScript, React, Swift.
+**Stack:** React, JavaScript/TypeScript, Swift/SwiftUI for product & UI; Python (pandas, numpy, scikit-learn) and SQL for the data behind them.
 
 **Contact:** edolder@purdue.edu`,
   },
@@ -24,65 +25,39 @@ Computer Science graduate. Data Science. Basketball analytics.
     type: "pdf",
     href: "assets/resume.pdf",
     download: "EthanDolder-Resume.pdf",
-    tagline: "One-pager. CS grad, data + basketball analytics.",
+    tagline: "One-pager. Product design + full-stack, data-driven sports products.",
   },
   {
-    id: "analytics-tools",
-    name: "analytics-tools",
+    id: "design",
+    name: "design",
     type: "folder",
-    description: "Four interactive analytics tools, each answering a different basketball question. All live on ydkball.net.",
+    description: "Design docs & prototypes — Figma files, interactive Claude pages, and static mockups.",
     children: [
+      // To add a Figma file later: { id, name, type: "design", source: "figma",
+      //   href: "<public Figma share link>", tagline, description, stack: ["Figma"] }
       {
-        id: "ydk-statsheets",
-        name: "interactive player database",
-        type: "tool",
-        href: "https://ydkball.net/leaderboard",
-        tagline: "Every stat, for every player, sortable and filterable.",
-        description: `Full player stat sheets across every category — Per Game, Totals, Advanced, and Tracking. Sort by any column, filter by team / position / season, and surface the line you're chasing.
-
-Built on top of an NBA stats pipeline I maintain — fresh after every game.
-
-Live at ydkball.net/leaderboard.`,
-        stack: ["React", "Postgres", "Python ETL"],
+        id: "ydk-player-profile",
+        name: "player profile — iOS + web",
+        type: "design",
+        source: "html",
+        // Whole Claude design bundle unzipped into this folder; the canvas file boots itself from ./support.js.
+        href: "assets/design/player-profile/Player%20Profile.dc.html",
+        tagline: "Design doc for ydkball's player page — native iOS and web, side by side.",
+        description: `An interactive design doc for the ydkball player-profile screen, built as a Claude design page. Shows the native SwiftUI iOS layout and the responsive web layout as live artboards — season averages, community rating, rating trend, and reviews. This mockup became the real PlayerProfileView in the iOS app.`,
+        stack: ["Claude", "SwiftUI", "React", "Design doc"],
       },
       {
-        id: "ydk-wowy",
-        name: "WoWY",
-        type: "tool",
-        href: "https://ydkball.net/wowy",
-        tagline: "With-or-without-you on/off splits.",
-        description: `Select 1–5 players. See how their team performs with all of them on the floor vs. when any one is off.
+        id: "ydk-profile-diary",
+        name: "user profile & diary — iOS",
+        type: "design",
+        source: "claude",
+        href: "https://claude.ai/code/artifact/1fe97f66-5a7e-47c3-a55c-f48cbbf69d9a",
+        thumb: "assets/design/userprofiledesign.png",
+        tagline: "Letterboxd-style user profile and game diary for the ydkball iOS app.",
+        description: `Design for the ydkball member experience: a user profile — watched count, reviews, average rating, favorite players, and a featured ranked list — plus a full "Diary" game log with by-the-numbers stats, filtering, and sort. A Letterboxd-for-basketball take on tracking every game you've watched and rated.
 
-Returns offensive rating, defensive rating, and net rating deltas — the classic on/off framework, but with multi-player lineups and confidence-aware sample sizes.
-
-Live at ydkball.net/wowy.`,
-        stack: ["React", "Postgres", "Play-by-play parser"],
-      },
-      {
-        id: "ydk-compare",
-        name: "compare",
-        type: "tool",
-        href: "https://ydkball.net/compare",
-        tagline: "Side-by-side player season comparison.",
-        description: `Stack any two seasons across every stat that matters. Career-best shooting vs. career-best shooting. Rookie-year defense vs. rookie-year defense. Any two players, any two seasons, same view.
-
-Useful for scouting analogues, projecting development curves, or settling arguments.
-
-Live at ydkball.net/compare.`,
-        stack: ["React", "Postgres"],
-      },
-      {
-        id: "ydk-builder",
-        name: "player archetype builder",
-        type: "tool",
-        href: "https://ydkball.net/builder",
-        tagline: "Build a custom player composite. Define the archetype.",
-        description: `Pick any combination of stats. The tool finds the players with the highest average percentile across all of them.
-
-You're defining the metric — "two-way guard", "rim protector", "high-usage scorer" — and it surfaces who fits. Functions as a poor-man's RAPM-flavored archetype finder, but tunable on the fly.
-
-Live at ydkball.net/builder.`,
-        stack: ["React", "Postgres", "Python (percentile pipeline)"],
+Opens live as an interactive Claude page.`,
+        stack: ["Claude", "iOS", "Design"],
       },
     ],
   },
@@ -124,6 +99,75 @@ Available on the App Store.`,
 
 Live data feeds, automated outlier computation, and data visualization triggered when games finish — so the next-morning takes have actual evidence behind them.`,
         stack: ["Python", "Pandas", "Postgres", "Next.js", "D3"],
+      },
+    ],
+  },
+  {
+    id: "analytics-tools",
+    name: "analytics-tools",
+    type: "folder",
+    description: "interactive basketball analytics tools, college and pro",
+    children: [
+      {
+        id: "cbb-lineups",
+        name: "cbb lineup tool",
+        type: "tool",
+        href: "https://cbblineups.up.railway.app/",
+        tagline: "For college basketball staff to optimize their 5-man lineups.",
+        description: `Compare your own 5-man lineups to benchmarks- avg D1 lineup, avg NCAA lineup, opponent starting 5, etc.`,
+        stack: ["Python, JavaScript, Pandas"],
+      },
+      {
+        id: "ydk-statsheets",
+        name: "interactive NBA player database",
+        type: "tool",
+        href: "https://ydkball.net/leaderboard",
+        tagline: "Every stat, for every player, sortable and filterable.",
+        description: `Full player stat sheets across every category — Per Game, Totals, Advanced, and Tracking. Sort by any column, filter by team / position / season, and surface the line you're chasing.
+
+Built on top of an NBA stats pipeline I maintain — fresh after every game.
+
+Live at ydkball.net/leaderboard.`,
+        stack: ["React", "Postgres", "Python ETL"],
+      },
+      {
+        id: "ydk-wowy",
+        name: "NBA WoWY",
+        type: "tool",
+        href: "https://ydkball.net/wowy",
+        tagline: "With-or-without-you on/off splits.",
+        description: `Select 1–5 players. See how their team performs with all of them on the floor vs. when any one is off.
+
+Returns offensive rating, defensive rating, and net rating deltas — the classic on/off framework, but with multi-player lineups and confidence-aware sample sizes.
+
+Live at ydkball.net/wowy.`,
+        stack: ["React", "Postgres", "Play-by-play parser"],
+      },
+      {
+        id: "ydk-compare",
+        name: "NBA player compare",
+        type: "tool",
+        href: "https://ydkball.net/compare",
+        tagline: "Side-by-side player season comparison.",
+        description: `Stack any two seasons across every stat that matters. Career-best shooting vs. career-best shooting. Rookie-year defense vs. rookie-year defense. Any two players, any two seasons, same view.
+
+Useful for scouting analogues, projecting development curves, or settling arguments.
+
+Live at ydkball.net/compare.`,
+        stack: ["React", "Postgres"],
+      },
+      {
+        id: "ydk-builder",
+        name: "NBA player archetype builder",
+        type: "tool",
+        href: "https://ydkball.net/builder",
+        tagline: "Build a custom player composite. Define the archetype.",
+        description: `Pick any combination of stats. The tool finds the players with the highest average percentile across all of them.
+
+You're defining the metric — "two-way guard", "rim protector", "high-usage scorer" — and it surfaces who fits. Functions as a poor-man's RAPM-flavored archetype finder, but tunable on the fly.
+
+Live at ydkball.net/builder.`,
+        stack: ["React", "Postgres", "Python (percentile pipeline)"],
       },
     ],
   },
