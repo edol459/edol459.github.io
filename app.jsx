@@ -420,7 +420,7 @@ function App() {
 
       <footer className="footnote">
         <span>© Ethan Dolder · {new Date().getFullYear()}</span>
-        <span>built as a file system, on purpose</span>
+        <span>built as a file system</span>
       </footer>
 
       <TweaksPanel title="Tweaks">

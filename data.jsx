@@ -116,9 +116,9 @@ Available on the App Store.`,
       },
       {
         id: "outlier",
-        name: "theoutlier.net",
+        name: "The Outlier",
         type: "site",
-        href: "https://theoutlier.net",
+        href: "https://theoutlier.up.railway.app/",
         tagline: "NBA games, by the numbers that don't fit.",
         description: `An analytics site that surfaces the statistical outliers in every NBA game.
 
